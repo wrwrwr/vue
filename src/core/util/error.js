@@ -40,7 +40,7 @@ function logError (err, vm, info) {
     warn(`Error in ${info}: "${err.toString()}"`, vm)
   }
   /* istanbul ignore else */
-  if ((inBrowser || inWeex) && typeof console !== 'undefined') {
+  if ((inBrowser || inWeex) && typeof console !== 'undefined' && !config.rethrowExceptions) {
     console.error(err)
   } else {
     throw err
